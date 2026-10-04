@@ -1,0 +1,107 @@
+<!-- Plantilla de correo: Incentivo Completado -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Incentivo Completado</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f8fafc;
+    }
+    .header {
+      background-color: #059669;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      border-radius: 8px 8px 0 0;
+    }
+    .content {
+      background-color: #ffffff;
+      padding: 30px;
+      border: 1px solid #e2e8f0;
+    }
+    .footer {
+      background-color: #64748b;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      border-radius: 0 0 8px 8px;
+      font-size: 12px;
+    }
+    .info-box {
+      background-color: #f3f4f6;
+      border-left: 4px solid #059669;
+      border-radius: 6px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+    .info-row {
+      display: flex;
+      margin-bottom: 10px;
+    }
+    .info-label {
+      font-weight: bold;
+      min-width: 150px;
+      color: #374151;
+    }
+    .info-value {
+      color: #1f2937;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>✓ Incentivo Completado</h1>
+    <p>Sistema de Gestión de Incentivos Profesorales</p>
+  </div>
+
+  <div class="content">
+    <p>Estimado/a <strong>{{nombreDocente}}</strong>,</p>
+    <p>
+      ¡Felicitaciones! Usted ha cumplido con éxito la totalidad de los requisitos
+      del incentivo <strong>{{nombreIncentivo}}</strong>. Adjuntamos a este correo
+      el certificado que avala su logro.
+    </p>
+
+    <div class="info-box">
+      <div class="info-row">
+        <span class="info-label">Incentivo:</span>
+        <span class="info-value">{{nombreIncentivo}}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Periodo:</span>
+        <span class="info-value">{{fechaInicio}} - {{fechaFin}}</span>
+      </div>
+      {{#if observaciones}}
+      <div class="info-row">
+        <span class="info-label">Observaciones:</span>
+        <span class="info-value">{{observaciones}}</span>
+      </div>
+      {{/if}}
+    </div>
+
+    <p>
+      Le invitamos a continuar participando en los programas de incentivos y
+      desarrollo profesoral de la Universidad.
+    </p>
+    <p>
+      Saludos cordiales,<br />
+      <strong>Administración de Incentivos Profesorales</strong><br />
+      Universidad de Cartagena
+    </p>
+  </div>
+
+  <div class="footer">
+    Este es un mensaje automático del Sistema de Gestión de Incentivos
+    Profesorales.<br />
+    Por favor, no responda directamente a este correo.
+  </div>
+</body>
+</html> 

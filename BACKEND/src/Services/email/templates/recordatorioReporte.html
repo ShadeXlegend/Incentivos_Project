@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recordatorio de Reporte</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #e0e0e0;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .urgente {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a5a);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .recordatorio-30 {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .recordatorio-10 {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .content {
+            margin: 20px 0;
+        }
+        .greeting {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        .info-box {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #3498db;
+        }
+        .info-item {
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .info-label {
+            font-weight: bold;
+            color: #555;
+            min-width: 150px;
+        }
+        .info-value {
+            color: #333;
+            text-align: right;
+        }
+        .fecha-limite {
+            font-size: 18px;
+            font-weight: bold;
+            color: #e74c3c;
+            text-align: center;
+            padding: 15px;
+            background: #fdf2f2;
+            border: 2px dashed #e74c3c;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .instrucciones {
+            background: #e8f5e8;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #27ae60;
+        }
+        .instrucciones h3 {
+            margin-top: 0;
+            color: #27ae60;
+        }
+        .countdown {
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .countdown.urgente {
+            background: #ffebee;
+            color: #c62828;
+        }
+        .countdown.medio {
+            background: #fff3e0;
+            color: #f57c00;
+        }
+        .countdown.normal {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+            padding-top: 20px;
+        }
+        .button {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            font-weight: bold;
+            margin: 10px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background: #2980b9;
+        }
+        .button.urgente {
+            background: #e74c3c;
+        }
+        .button.urgente:hover {
+            background: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">📊 Sistema de Incentivos Profesorales</div>
+            <div>Universidad de Cartagena</div>
+        </div>
+
+        {{#if esUrgente}}
+        <div class="urgente">
+            🚨 RECORDATORIO URGENTE - ÚLTIMO DÍA 🚨
+        </div>
+        {{else}}
+        {{#if (eq diasAntes 10)}}
+        <div class="recordatorio-10">
+            ⏰ RECORDATORIO IMPORTANTE
+        </div>
+        {{else}}
+        <div class="recordatorio-30">
+            📅 RECORDATORIO PROGRAMADO
+        </div>
+        {{/if}}
+        {{/if}}
+
+        <div class="content">
+            <div class="greeting">
+                Estimado/a <strong>{{nombreDocente}}</strong>,
+            </div>
+
+            <p>Le recordamos que tiene un reporte pendiente de entregar para su incentivo profesoral.</p>
+
+            <div class="info-box">
+                <div class="info-item">
+                    <span class="info-label">Incentivo:</span>
+                    <span class="info-value"><strong>{{nombreIncentivo}}</strong></span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Número de Reporte:</span>
+                    <span class="info-value">#{{numeroReporte}}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Frecuencia:</span>
+                    <span class="info-value">Cada {{frecuenciaReporte}} días</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Fecha Actual:</span>
+                    <span class="info-value">{{fechaActual}}</span>
+                </div>
+            </div>
+
+            <div class="fecha-limite">
+                📅 Fecha Límite: {{fechaLimite}}
+            </div>
+
+            <div class="countdown {{#if esUrgente}}urgente{{else}}{{#if (eq diasAntes 10)}}medio{{else}}normal{{/if}}{{/if}}">
+                {{#if esUrgente}}
+                ⏰ ¡VENCE MAÑANA!
+                {{else}}
+                {{diasRestantes}} días restantes
+                {{/if}}
+            </div>
+
+            {{#if esUrgente}}
+            <div class="instrucciones">
+                <h3>🚨 Acción Urgente Requerida</h3>
+                <p><strong>Su reporte vence mañana.</strong> Para evitar atrasos en su incentivo profesoral, por favor:</p>
+                <ul>
+                    <li>Prepare su documento de reporte inmediatamente</li>
+                    <li>Ingrese al sistema antes de las 11:59 PM de mañana</li>
+                    <li>Si tiene problemas técnicos, contacte soporte de inmediato</li>
+                </ul>
+            </div>
+            {{else}}
+            <div class="instrucciones">
+                <h3>📋 Próximos Pasos</h3>
+                <p>Para mantener su incentivo profesoral al día, recuerde:</p>
+                <ul>
+                    <li>Preparar el documento de reporte correspondiente</li>
+                    <li>Ingresar al sistema con suficiente anticipación</li>
+                    <li>Subir el archivo antes de la fecha límite</li>
+                    <li>Esperar la validación del administrador</li>
+                </ul>
+            </div>
+            {{/if}}
+
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="#" class="button {{#if esUrgente}}urgente{{/if}}">
+                    🔗 Acceder al Sistema
+                </a>
+            </div>
+
+            <p>Si tiene alguna pregunta o necesita asistencia, no dude en contactar al equipo de soporte.</p>
+        </div>
+
+        <div class="footer">
+            <p><strong>Sistema de Incentivos Profesorales</strong><br>
+            Universidad de Cartagena<br>
+            <em>Este es un mensaje automático, por favor no responder a este correo.</em></p>
+            
+            {{#if esUrgente}}
+            <p style="color: #e74c3c; font-weight: bold; margin-top: 15px;">
+                ⚠️ Recordatorio crítico - Su reporte vence en menos de 24 horas
+            </p>
+            {{/if}}
+        </div>
+    </div>
+</body>
+</html> 

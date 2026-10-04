@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+
+/* libraries */
+@import "simplebar-react/dist/simplebar.min.css";
+
+/*@import "react-quill/dist/quill.snow.css";*/
+/*@import "react-quill/dist/quill.bubble.css";*/
+
+/* custom */
+@import "setup.css";
+
+/* plugins */
+@import "plugins/swiper.css";
+@import "plugins/simplebar.css";
+@import "plugins/apex-charts.css";
+@import "plugins/calendar.css";

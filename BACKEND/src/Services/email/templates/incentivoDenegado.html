@@ -1,0 +1,117 @@
+<!-- Plantilla de correo: Incentivo Denegado -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Incentivo Denegado</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fef2f2;
+    }
+    .header {
+      background-color: #dc2626;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      border-radius: 8px 8px 0 0;
+    }
+    .content {
+      background-color: #ffffff;
+      padding: 30px;
+      border: 1px solid #e2e8f0;
+    }
+    .footer {
+      background-color: #64748b;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      border-radius: 0 0 8px 8px;
+      font-size: 12px;
+    }
+    .info-box {
+      background-color: #fef2f2;
+      border-left: 4px solid #dc2626;
+      border-radius: 6px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+    .info-row {
+      display: flex;
+      margin-bottom: 10px;
+    }
+    .info-label {
+      font-weight: bold;
+      min-width: 150px;
+      color: #991b1b;
+    }
+    .info-value {
+      color: #1f2937;
+    }
+    .mensaje-admin {
+      background-color: #f3f4f6;
+      border-left: 4px solid #6b7280;
+      padding: 15px;
+      margin: 15px 0;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>✗ Incentivo Rechazado</h1>
+    <p>Sistema de Gestión de Incentivos Profesorales</p>
+  </div>
+
+  <div class="content">
+    <p>Estimado/a <strong>{{nombreDocente}}</strong>,</p>
+    <p>
+      Lamentamos informarle que su incentivo <strong>{{nombreIncentivo}}</strong>
+      ha sido <strong>rechazado</strong> tras la revisión final. Se adjunta el
+      certificado oficial de denegación donde encontrará más detalles.
+    </p>
+
+    <div class="info-box">
+      <div class="info-row">
+        <span class="info-label">Incentivo:</span>
+        <span class="info-value">{{nombreIncentivo}}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Periodo:</span>
+        <span class="info-value">{{fechaInicio}} - {{fechaFin}}</span>
+      </div>
+      {{#if observaciones}}
+      <div class="info-row">
+        <span class="info-label">Observaciones:</span>
+        <span class="info-value">{{observaciones}}</span>
+      </div>
+      {{/if}}
+      {{#if mensajeAdministrador}}
+      <div class="mensaje-admin">{{mensajeAdministrador}}</div>
+      {{/if}}
+    </div>
+
+    <p>
+      Si considera que se trata de un error o tiene preguntas adicionales,
+      comuníquese con el administrador del sistema.
+    </p>
+    <p>
+      Saludos cordiales,<br />
+      <strong>Administración de Incentivos Profesorales</strong><br />
+      Universidad de Cartagena
+    </p>
+  </div>
+
+  <div class="footer">
+    Este es un mensaje automático del Sistema de Gestión de Incentivos
+    Profesorales.<br />
+    Por favor, no responda directamente a este correo.
+  </div>
+</body>
+</html> 

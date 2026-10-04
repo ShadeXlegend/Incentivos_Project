@@ -1,0 +1,133 @@
+/* Custom */
+
+.swiper-button-next,
+.swiper-button-prev {
+  height: 32px;
+  width: 32px;
+  backdrop-filter: blur(2px);
+  font-family: remixicon;
+  font-size: 28px;
+  transition: all 0.3s ease;
+
+  &::after {
+    display: none;
+  }
+}
+
+.swiper-button-prev {
+  &::before {
+    content: "\EA64";
+  }
+}
+.swiper-button-next {
+  &::before {
+    content: "\EA6E";
+  }
+}
+
+.navigation-swiper {
+  .swiper-pagination-bullet {
+    width: 22px;
+    height: 5px;
+    background-color: #fff;
+    border-radius: 50px;
+
+    .swiper-pagination-bullet-active {
+      opacity: 1;
+    }
+  }
+}
+
+.vertical-swiper {
+  .swiper-pagination-bullet {
+    width: 22px;
+    height: 5px;
+    background-color: #fff;
+    border-radius: 50px;
+
+    .swiper-pagination-bullet-active {
+      opacity: 1;
+    }
+  }
+}
+
+.pagination-dynamic-swiper {
+  .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    background-color: #fff;
+    opacity: 0.5;
+    transition: all 0.5s ease;
+    border-radius: 50px;
+
+    &.swiper-pagination-bullet-active {
+      opacity: 1;
+      width: 20px;
+    }
+  }
+}
+
+.swiper-pagination-fraction {
+  color: #fff !important;
+  font-size: 16px;
+  backdrop-filter: blur(2px);
+}
+
+.pagination-custom-swiper {
+  .swiper-pagination-bullet {
+    height: 25px;
+    width: 25px;
+    line-height: 25px;
+    border-radius: 8px;
+    background-color: #fff;
+    opacity: 0.5;
+    transition: all 0.5s ease;
+
+    &.swiper-pagination-bullet-active {
+      opacity: 1;
+    }
+  }
+}
+
+.pagination-progress-swiper {
+  .swiper-pagination-progressbar-fill {
+    height: 6px !important;
+    background-color: rgb(28 180 84 / var(--tw-bg-opacity)) !important;
+  }
+}
+
+.pagination-scrollbar-swiper {
+  .swiper-scrollbar {
+    background-color: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(2px);
+    padding: 1.2px;
+    height: 6px !important;
+
+    .swiper-scrollbar-drag {
+      background-color: #fff;
+    }
+  }
+}
+
+.swiper-pagination-dark {
+  .swiper-pagination-bullet {
+  }
+
+  .dynamic-pagination {
+    .swiper-pagination-bullet {
+    }
+  }
+
+  &.pagination-custom {
+    .swiper-pagination-bullet {
+      color: #fff;
+
+      &.swiper-pagination-bullet-active {
+        opacity: 1;
+      }
+    }
+  }
+
+  &.swiper-scrollbar {
+  }
+}

@@ -1,0 +1,110 @@
+
+
+  .apex-charts {
+    min-height: 10px !important;
+
+    & text {
+      font-family: var(--font-family-base) !important;
+      fill: var(--text-color);
+
+    }
+
+    .apexcharts-canvas {
+      margin: 0 auto;
+    }
+  }
+
+  .apexcharts-tooltip-title,
+  .apexcharts-tooltip-text {
+    font-family: var(--font-family-base) !important;
+  }
+
+  .apexcharts-tooltip {
+
+    border-color: var(--border-color);
+    background-color: var(--background-color);
+
+    * {
+      font-family: var(--font-family-base) !important;
+    }
+
+    .apexcharts-tooltip-title {
+      border-color: var(--border-color);
+      background-color: var(--background-color);
+    }
+  }
+
+  .apexcharts-tooltip.apexcharts-theme-dark {
+    * {
+      color: #fff
+    }
+  }
+
+  .apexcharts-legend-series {
+    font-weight: 700;
+  }
+
+  .apexcharts-gridline {
+    stroke: var(--stroke)
+  }
+
+  .apexcharts-annotation-rect {
+    fill: #111827
+  }
+
+  .apexcharts-xaxis-annotations,
+  .apexcharts-yaxis-annotations {
+    & rect {
+      stroke: none;
+    }
+  }
+
+
+  .apexcharts-xaxistooltip {
+    color: #3f4650;
+    border-color: var(--border-color);
+    background-color: var(--background-color);
+  }
+
+  .apexcharts-xaxistooltip-bottom:before {
+    border-bottom-color: var(--border-color);
+  }
+
+  .apexcharts-xaxistooltip-text,
+  .apexcharts-datalabels text {
+    font-family: var(--font-family-base) !important;
+  }
+
+  .apexcharts-menu {
+    border-color: var(--border-color);
+    background-color: var(--background-color);
+
+    .apexcharts-menu-item {
+      &:hover {
+        background-color: var(--background-color);
+        color: #444d57;
+      }
+    }
+  }
+
+  .apexcharts-radar-series {
+    & polygon {
+      stroke: var(--stroke);
+      fill: transparent;
+    }
+
+    & line {
+      .apexcharts-radar-series polygon {
+        stroke: #464f5b;
+      }
+
+      stroke: var(--stroke);
+    }
+  }
+
+
+  .apexcharts-track {
+    & path {
+      stroke: var(--stroke);
+    }
+  }

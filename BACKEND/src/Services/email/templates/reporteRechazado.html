@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte Rechazado</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #dc2626;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+        .content {
+            background-color: #f8fafc;
+            padding: 30px;
+            border: 1px solid #e2e8f0;
+        }
+        .footer {
+            background-color: #64748b;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 0 0 8px 8px;
+            font-size: 12px;
+        }
+        .info-box {
+            background-color: white;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .info-row {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        .info-label {
+            font-weight: bold;
+            min-width: 140px;
+            color: #374151;
+        }
+        .info-value {
+            color: #1f2937;
+        }
+        .error-alert {
+            background-color: #fef2f2;
+            border: 1px solid #ef4444;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .error-title {
+            font-weight: bold;
+            color: #991b1b;
+            margin-bottom: 8px;
+        }
+        .action-box {
+            background-color: #fffbeb;
+            border: 1px solid #f59e0b;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .action-title {
+            font-weight: bold;
+            color: #92400e;
+            margin-bottom: 8px;
+        }
+        .message-box {
+            background-color: #f3f4f6;
+            border-left: 4px solid #6b7280;
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        .x-icon {
+            color: #ef4444;
+            font-size: 24px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>✗ Reporte Rechazado</h1>
+        <p>Sistema de Gestión de Incentivos Profesorales</p>
+    </div>
+    
+    <div class="content">
+        <p>Estimado/a <strong>{{nombreDocente}}</strong>,</p>
+        
+        <div class="error-alert">
+            <div class="error-title">
+                <span class="x-icon">✗</span>
+                Su reporte ha sido rechazado
+            </div>
+            <p>El reporte correspondiente a su incentivo <strong>{{nombreIncentivo}}</strong> ha sido revisado pero no cumple con los requisitos establecidos.</p>
+        </div>
+        
+        <div class="info-box">
+            <h3 style="margin-top: 0; color: #dc2626;">Detalles del Reporte</h3>
+            
+            <div class="info-row">
+                <span class="info-label">Incentivo:</span>
+                <span class="info-value">{{nombreIncentivo}}</span>
+            </div>
+            
+            <div class="info-row">
+                <span class="info-label">Fecha de entrega:</span>
+                <span class="info-value">{{fechaEntrega}}</span>
+            </div>
+            
+            <div class="info-row">
+                <span class="info-label">Fecha de revisión:</span>
+                <span class="info-value">{{fechaValidacion}}</span>
+            </div>
+            
+            <div class="info-row">
+                <span class="info-label">Estado:</span>
+                <span class="info-value" style="color: #dc2626; font-weight: bold;">RECHAZADO</span>
+            </div>
+        </div>
+        
+        {{#if mensajeAdministrador}}
+        <div class="info-box" style="border-color: #dc2626;">
+            <h3 style="margin-top: 0; color: #dc2626;">Comentarios del Administrador</h3>
+            <div class="message-box">
+                {{mensajeAdministrador}}
+            </div>
+        </div>
+        {{/if}}
+        
+        {{#if observaciones}}
+        <div class="info-box">
+            <h3 style="margin-top: 0; color: #374151;">Observaciones Adicionales</h3>
+            <p>{{observaciones}}</p>
+        </div>
+        {{/if}}
+        
+        <div class="action-box">
+            <div class="action-title">Acción Requerida</div>
+            <p>Debe realizar las correcciones necesarias y volver a enviar su reporte lo antes posible para mantener el cumplimiento de su incentivo.</p>
+            
+            <p><strong>Pasos a seguir:</strong></p>
+            <ol>
+                <li>Revise cuidadosamente los comentarios del administrador</li>
+                <li>Realice las correcciones o mejoras solicitadas</li>
+                <li>Vuelva a subir su reporte a través del sistema</li>
+                <li>Asegúrese de que el nuevo reporte cumpla con todos los requisitos</li>
+            </ol>
+            
+            {{#if proximaFechaLimite}}
+            <p><strong>Fecha límite para reenvío:</strong> {{proximaFechaLimite}}</p>
+            {{/if}}
+        </div>
+        
+        <p>Si tiene dudas sobre las observaciones realizadas o necesita orientación adicional, no dude en contactar al administrador del sistema.</p>
+        
+        <p>Saludos cordiales,<br>
+        <strong>Administración de Incentivos Profesorales</strong><br>
+        Universidad de Cartagena</p>
+    </div>
+    
+    <div class="footer">
+        Este es un mensaje automático del Sistema de Gestión de Incentivos Profesorales.<br>
+        Por favor, no responda directamente a este correo.
+    </div>
+</body>
+</html> 

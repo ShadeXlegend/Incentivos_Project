@@ -1,0 +1,85 @@
+:root {
+  /* Tipografía */
+  --font-family: 'Poppins', 'Roboto', sans-serif;
+  --font-weight-semibold: 600;
+
+  /* Colores en modo claro */
+  --stroke: #dee2e6;
+  --border-color: #dee2e6;
+  --background-color: #f1f1f1;
+  --text-color: #333;
+}
+
+html[data-mode="dark"] {
+  color-scheme: dark;
+
+  /* Colores en modo oscuro */
+  --stroke: #3d454f;
+  --border-color: #3d454f;
+  --background-color: #181e26;
+  --text-color: #aab8c5;
+}
+
+/* ===== Base ===== */
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  scroll-behavior: smooth;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ===== Utilidades (colores) ===== */
+.bg-primary {
+  background-color: #095fff !important;
+}
+.bg-info {
+  background-color: #20a3ff !important;
+}
+.bg-success {
+  background-color: #00b636 !important;
+}
+.bg-warning {
+  background-color: #ff8d0a !important;
+}
+.bg-error {
+  background-color: #ff2c2c !important;
+}
+
+/* ===== Sidebar Redondeado (en modo fijo) ===== */
+.app-menu-do-not-remove {
+  background-color: var(--background-color);
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 1200;
+}
+
+/* ===== Impresión ===== */
+@media print {
+  .app-menu-do-not-remove,
+  .topbar-header-do-not-remove,
+  .footer-do-not-remove {
+    display: none !important;
+  }
+}

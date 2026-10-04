@@ -1,0 +1,7 @@
+.fc {
+    &.fc-theme-standard td, &.fc-theme-standard th, &.fc-theme-standard .fc-scrollgrid{
+        border-color: var(--border-color);
+    }
+}
+
+

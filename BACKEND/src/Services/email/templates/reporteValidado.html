@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte Validado</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #059669;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+        .content {
+            background-color: #f8fafc;
+            padding: 30px;
+            border: 1px solid #e2e8f0;
+        }
+        .footer {
+            background-color: #64748b;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 0 0 8px 8px;
+            font-size: 12px;
+        }
+        .info-box {
+            background-color: white;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .info-row {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        .info-label {
+            font-weight: bold;
+            min-width: 140px;
+            color: #374151;
+        }
+        .info-value {
+            color: #1f2937;
+        }
+        .success-alert {
+            background-color: #d1fae5;
+            border: 1px solid #10b981;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .success-title {
+            font-weight: bold;
+            color: #065f46;
+            margin-bottom: 8px;
+        }
+        .check-icon {
+            color: #10b981;
+            font-size: 24px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>✓ Reporte Validado</h1>
+        <p>Sistema de Gestión de Incentivos Profesorales</p>
+    </div>
+    
+    <div class="content">
+        <p>Estimado/a <strong>{{nombreDocente}}</strong>,</p>
+        
+        <div class="success-alert">
+            <div class="success-title">
+                <span class="check-icon">✓</span>
+                Su reporte ha sido validado exitosamente
+            </div>
+            <p>El reporte correspondiente a su incentivo <strong>{{nombreIncentivo}}</strong> ha sido revisado y aprobado por el administrador del sistema.</p>
+        </div>
+        
+        <div class="info-box">
+            <h3 style="margin-top: 0; color: #059669;">Detalles del Reporte</h3>
+            
+            <div class="info-row">
+                <span class="info-label">Incentivo:</span>
+                <span class="info-value">{{nombreIncentivo}}</span>
+            </div>
+            
+            <div class="info-row">
+                <span class="info-label">Fecha de entrega:</span>
+                <span class="info-value">{{fechaEntrega}}</span>
+            </div>
+            
+            <div class="info-row">
+                <span class="info-label">Fecha de validación:</span>
+                <span class="info-value">{{fechaValidacion}}</span>
+            </div>
+            
+            <div class="info-row">
+                <span class="info-label">Estado:</span>
+                <span class="info-value" style="color: #059669; font-weight: bold;">VALIDADO</span>
+            </div>
+            
+            {{#if observaciones}}
+            <div class="info-row">
+                <span class="info-label">Observaciones:</span>
+                <span class="info-value">{{observaciones}}</span>
+            </div>
+            {{/if}}
+        </div>
+        
+        {{#if proximoReporte}}
+        <div class="info-box" style="border-color: #3b82f6;">
+            <h3 style="margin-top: 0; color: #1e40af;">Próximo Reporte</h3>
+            <p>Su próximo reporte deberá ser enviado antes del <strong>{{proximoReporte}}</strong>.</p>
+            <p>Recuerde que la frecuencia de reportes para este incentivo es cada <strong>{{frecuenciaReporte}} días</strong>.</p>
+        </div>
+        {{/if}}
+        
+        <p>Gracias por cumplir con los requisitos de seguimiento de su incentivo profesional.</p>
+        
+        <p>Saludos cordiales,<br>
+        <strong>Administración de Incentivos Profesorales</strong><br>
+        Universidad de Cartagena</p>
+    </div>
+    
+    <div class="footer">
+        Este es un mensaje automático del Sistema de Gestión de Incentivos Profesorales.<br>
+        Por favor, no responda directamente a este correo.
+    </div>
+</body>
+</html> 
