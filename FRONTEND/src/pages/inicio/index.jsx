@@ -12,6 +12,9 @@ const Inicio = () => {
         sx={{ mb: 3, fontWeight: 600 }}
       >
         ¡Bienvenido!
+        <Box component="span" sx={{ ml: 1, fontSize: "0.55em", fontWeight: 400 }}>
+          Aqui hice un cambio
+        </Box>
       </Typography>
 
       {/* Componente informativo para docentes */}
